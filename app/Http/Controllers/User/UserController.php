@@ -6,9 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function userRegister(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+        ]);
+        $validator->validate();
+        $user = new User($validator->validated());
+        $user->save();
+        return response()->json([
+            'user' => $user
+        ]);
+    }
     public function userLogin(Request $request)
     {
         $validator = validator($request->all(), [
@@ -30,7 +46,7 @@ class UserController extends Controller
             ]);
         }
     }
-    public function logout()
+    public function UserLogout()
     {
         request()->user()->tokens()->delete();
     }

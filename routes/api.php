@@ -19,11 +19,12 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 |
 */
 
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/citizen', [CitizenController::class, 'index']);
+    Route::get('/citizen/{citizen}', [CitizenController::class, 'show']);
+    Route::post('userLogout', [UserController::class, 'userLogout']);
+});
 
-Route::get('/citizen', [CitizenController::class, 'index'])->middleware(['auth:sanctum']);
-Route::get('/citizen/{citizen}', [CitizenController::class, 'show'])->middleware(['auth:sanctum']);;
+
 Route::post('userLogin', [UserController::class, 'userLogin']);
-Route::post('userLogout', [\App\Http\Controllers\Auth\LoginController::class, 'userLogout']);
-
-
-Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::post('userRegister', [UserController::class, 'userRegister']);
