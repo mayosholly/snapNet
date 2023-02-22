@@ -47,7 +47,7 @@ class CitizenController extends Controller
         return view(
             'admin/citizen/show',
             [
-                'citizen' => $citizen
+                'citizen' => $citizen->load(['ward', 'ward.lga', 'ward.lga.state'])
             ]
         );
     }

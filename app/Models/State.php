@@ -15,6 +15,6 @@ class State extends Model
 
     public function lga()
     {
-        $this->hasMany(Lga::class, 'state_id');
+        return $this->hasMany(Lga::class, 'state_id');
     }
 }
