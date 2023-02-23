@@ -36,7 +36,7 @@ class AdminLoginController extends Controller
     {
         if (session()->has('loginId')) {
             session()->pull('loginId');
-            return redirect('admin/login');
+            return redirect(route('login.getAdminLogin'));
         }
     }
 }

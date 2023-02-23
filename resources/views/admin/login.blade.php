@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('header')
-    Admin Login
-@endsection
 
 @section('nav')
     Dashboard
