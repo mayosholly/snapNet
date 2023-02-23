@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('header')
-    Register
-@endsection
 
 @section('nav')
     Register

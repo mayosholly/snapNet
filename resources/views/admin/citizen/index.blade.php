@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@section('header')
-    Dashboard
-@endsection
 
 @section('nav')
     Dashboard
@@ -44,4 +41,7 @@
 
     </tbody>
 </table>
+<div class="blog-pagination">
+        {{ $citizens->links() }}
+      </div>
 @endsection

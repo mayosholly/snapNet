@@ -12,7 +12,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">@yield('header')</a>
+    <a class="navbar-brand" href="{{ route('index.adminDashboard') }}">Snap Net Test</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,9 +23,12 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('index.adminDashboard') }}">Home <span class="sr-only">(current)</span></a>
         </li>
+
+        @if (session()->has('loginId'))
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('logout.adminLogout') }}">Logout</a>
         </li>
+        @endif
         </ul>
     </div>
     </nav>

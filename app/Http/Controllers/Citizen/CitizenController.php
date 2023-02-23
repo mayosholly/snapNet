@@ -17,7 +17,7 @@ class CitizenController extends Controller
                 ->latest()
                 ->paginate(10)->withQueryString();
         } else {
-            $citizens = Citizen::latest()->get();
+            $citizens = Citizen::latest()->paginate(10);
         }
         return view(
             'admin/citizen/index',
