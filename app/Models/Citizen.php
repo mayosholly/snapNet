@@ -18,6 +18,6 @@ class Citizen extends Model
 
     public function ward()
     {
-        $this->belongsTo(Ward::class, 'ward_id');
+        return $this->belongsTo(Ward::class, 'ward_id');
     }
 }

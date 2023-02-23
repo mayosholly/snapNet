@@ -18,6 +18,9 @@
             <td scope='col'>Gender</td>
             <td scope='col'>Address</td>
             <td scope='col'>Phone Number</td>
+            <td scope='col'>Ward</td>
+            <td scope='col'>LGA</td>
+            <td scope='col'>State</td>
 
         </tr>
     </th>
@@ -29,6 +32,9 @@
             <td scope='row'>{{ $citizen->gender }}</td>
             <td scope='row'>{{ $citizen->address }}</td>
             <td scope='row'>{{ $citizen->phone }}</td>
+            <td scope='row'>{{ $citizen->ward->name }}</td>
+            <td scope='row'>{{ $citizen->ward->lga->name }}</td>
+            <td scope='row'>{{ $citizen->ward->lga->state->name }}</td>
 
 
         </tr>

@@ -15,11 +15,11 @@ class Ward extends Model
 
     public function lga()
     {
-        $this->belongsTo(Lga::class, 'lga_id');
+        return $this->belongsTo(Lga::class, 'lga_id');
     }
 
     public function citizen()
     {
-        $this->hasMany(Citizen::class, 'ward_id');
+        return $this->hasMany(Citizen::class, 'ward_id');
     }
 }

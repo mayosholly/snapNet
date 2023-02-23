@@ -12,11 +12,11 @@ class CitizenController extends Controller
     public function index()
     {
         $citizen = Citizen::get();
-        return CitizenResource::collection(Citizen::paginate());
+        return CitizenResource::collection(Citizen::with('ward', 'ward.lga', 'ward.lga.state')->paginate());
     }
 
     public function show(Citizen $citizen)
     {
-        return new CitizenResource($citizen);
+        return new CitizenResource($citizen->load(['ward', 'ward.lga', 'ward.lga.state']));
     }
 }

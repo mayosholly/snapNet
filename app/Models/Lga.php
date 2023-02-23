@@ -15,6 +15,6 @@ class Lga extends Model
 
     public function state()
     {
-        $this->belongsTo(State::class, 'state_id');
+        return $this->belongsTo(State::class, 'state_id');
     }
 }
